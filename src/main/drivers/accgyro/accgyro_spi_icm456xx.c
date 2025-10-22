@@ -358,7 +358,8 @@ void icm456xxAccInit(accDev_t *acc)
 
     switch (acc->mpuDetectionResult.sensor) {
     case ICM_45686_SPI:
-        acc->acc_1G = 1024; // 32g scale = 1024 LSB/g
+        // acc->acc_1G = 1024; // 32g scale = 1024 LSB/g // Original
+        acc->acc_1G = 512;
         acc->gyro->accSampleRateHz = 1600;
         spiWriteReg(dev, ICM456XX_ACCEL_CONFIG0, ICM456XX_ACCEL_FS_SEL_32G | ICM456XX_ACCEL_ODR_1K6_LN);
         break;
